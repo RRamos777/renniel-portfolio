@@ -442,6 +442,7 @@ function App() {
       </main>
       <footer className="site-footer">
         <span>© {new Date().getFullYear()} Renniel Ramos</span>
+        <span>Built with React + Vite. Ready for Vercel.</span>
       </footer>
     </>
   );

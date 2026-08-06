@@ -99,8 +99,7 @@ const projects = [
         { src: '/videos/video_editing/motion_graphics/motion_graphics5.mp4', title: 'Motion Graphics 05' },
         { src: '/videos/video_editing/motion_graphics/motion_graphics6.mp4', title: 'Motion Graphics 06' },
         { src: '/videos/video_editing/motion_graphics/motion_graphics7.mp4', title: 'Motion Graphics 07' },
-        { src: '/videos/video_editing/motion_graphics/motion_graphics8.mp4', title: 'Motion Graphics 08' },
-        { src: '/videos/video_editing/motion_graphics/motion_graphics9.mp4', title: 'Motion Graphics 09' },
+        { src: '/videos/video_editing/motion_graphics/motion_graphics8.mp4', title: 'Motion Graphics 08' }
       ],
     },
   },

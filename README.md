@@ -13,7 +13,7 @@ A dependency-free, responsive creative portfolio designed for Vercel.
 - Optimized WebP logo artwork for faster loading
 - Scrollable Motion Graphics collection prepared for nine MP4 projects
 - Vlog project prepared for `Vlog1.mp4` inside `public/videos/video_editing/vlogs/`
-- YouTube Shorts gallery prepared for `Shorts1.mp4` through `Shorts9.mp4` inside `public/videos/video_editing/youtube_shorts/`
+- YouTube Shorts project prepared for one landscape four-shorts montage named `Shorts1.mp4` inside `public/videos/video_editing/youtube_shorts/`
 - Mobile bottom navigation, touch-friendly filters, responsive project cards, and phone-ready project modals
 - Motion Graphics videos autoplay muted when at least 60% visible, pause when scrolled away, and loop while active
 - Asset validation before production builds
@@ -184,26 +184,18 @@ Recommended export settings:
 - 1920 × 1080 for landscape or 1080 × 1920 for vertical work
 
 
-## YouTube Shorts collection
+## YouTube Shorts landscape montage
 
-Place your vertical MP4 exports in this folder:
+Place the single landscape MP4 in this folder:
 
 ```text
 public/videos/video_editing/youtube_shorts/
 ```
 
-Use these exact filenames:
+Use this exact filename:
 
 ```text
 Shorts1.mp4
-Shorts2.mp4
-Shorts3.mp4
-Shorts4.mp4
-Shorts5.mp4
-Shorts6.mp4
-Shorts7.mp4
-Shorts8.mp4
-Shorts9.mp4
 ```
 
-The gallery is optimized for vertical 9:16 videos and automatically changes from three columns on desktop to two columns on tablets and one column on small phones. Missing files display a filename placeholder until the MP4 is added.
+`Shorts1.mp4` should contain the four Shorts in one landscape montage. The player uses the video's real aspect ratio after loading, stays full-width inside the project modal, and scales cleanly on tablets and phones without cropping. Until the file is added, the project displays a filename placeholder.

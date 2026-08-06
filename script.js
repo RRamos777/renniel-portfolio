@@ -185,26 +185,18 @@ const projects = [
   {
     id: 'youtube-shorts',
     title: 'YouTube Shorts',
-    client: 'Selected short-form edits',
+    client: 'Four-shorts landscape montage',
     year: '2026',
     discipline: 'video',
     category: 'YouTube Shorts',
     image: '/work/youtube-shorts.svg',
-    size: 'standard',
-    summary: 'A scrollable collection of short-form YouTube edits designed around immediate hooks, quick pacing, readable captions, pattern interrupts, and clear visual payoffs.',
-    tags: ['YouTube Shorts', 'Short-form editing', 'Captions'],
+    size: 'wide',
+    summary: 'A single landscape showcase combining four YouTube Shorts in one video, presented as a clean side-by-side montage for quick portfolio viewing on desktop, tablet, and phone.',
+    tags: ['Four-up montage', 'Short-form editing', 'Landscape showcase'],
     gallery: {
-      layout: 'shorts-collection',
+      layout: 'shorts-landscape',
       videos: [
-        { src: '/videos/video_editing/youtube_shorts/Shorts1.mp4', title: 'YouTube Short 01' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts2.mp4', title: 'YouTube Short 02' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts3.mp4', title: 'YouTube Short 03' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts4.mp4', title: 'YouTube Short 04' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts5.mp4', title: 'YouTube Short 05' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts6.mp4', title: 'YouTube Short 06' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts7.mp4', title: 'YouTube Short 07' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts8.mp4', title: 'YouTube Short 08' },
-        { src: '/videos/video_editing/youtube_shorts/Shorts9.mp4', title: 'YouTube Short 09' },
+        { src: '/videos/video_editing/youtube_shorts/Shorts1.mp4', title: 'Four YouTube Shorts — Landscape Montage' },
       ],
     },
   },
@@ -535,6 +527,14 @@ function createVideoGallery(project, videoItems) {
       figure.classList.add('is-loaded', 'has-video');
       placeholder.hidden = true;
       video.hidden = false;
+
+      // Match the player shell to the actual export ratio. This keeps
+      // landscape montages, vertical reels, and standard 16:9 videos from
+      // being cropped or surrounded by unnecessary empty space.
+      if (video.videoWidth > 0 && video.videoHeight > 0) {
+        videoShell.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+      }
+
       updateVideoAutoplay();
     };
 

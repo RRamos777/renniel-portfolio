@@ -42,7 +42,7 @@ const projects = [
     discipline: 'video',
     category: 'Vlogs',
     image: '/images/video_editing/covers/vlog_cover.png',
-    size: 'tall',
+    size: 'wide',
     summary: 'A vlog edit presented with clean pacing, natural storytelling, supportive B-roll, readable typography, sound design, and polished color correction.',
     tags: ['Vlog editing', 'Story pacing', 'Color correction'],
     gallery: {

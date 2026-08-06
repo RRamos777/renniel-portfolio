@@ -1,17 +1,41 @@
-# Renniel Ramos — Polished Developer Portfolio
+# Renniel Ramos — Graphic Designer & Video Editor Portfolio
 
-A polished, minimalist developer portfolio for Renniel Ramos, built with React, Vite, and plain CSS.
+A dependency-free, responsive creative portfolio designed for Vercel.
 
-This version is intentionally less template-looking than a basic portfolio. It uses a strong editorial layout, sticky navigation, large typography, selected work cards, experience timeline, stack matrix, and process section.
+## Included
 
-## Local Development
+- Main filters for **Video Editing** and **Graphic Design**
+- Video categories: Reels, Motion Graphics, Vlogs, YouTube Shorts
+- Design categories: Brand Identity, Logo Design, Thumbnail Design, Social Media Design
+- Responsive editorial project grid
+- Clickable project modal with long, scrollable case studies
+- Dedicated **Logo Designs** collection with nine presentation boards
+- Optimized WebP logo artwork for faster loading
+- Scrollable Motion Graphics collection prepared for nine MP4 projects
+- Vlog project prepared for `Vlog1.mp4` inside `public/videos/video_editing/vlogs/`
+- YouTube Shorts gallery prepared for `Shorts1.mp4` through `Shorts9.mp4` inside `public/videos/video_editing/youtube_shorts/`
+- Mobile bottom navigation, touch-friendly filters, responsive project cards, and phone-ready project modals
+- Motion Graphics videos autoplay muted when at least 60% visible, pause when scrolled away, and loop while active
+- Asset validation before production builds
+- No npm packages required
+
+## Run locally
 
 ```bash
-npm install
 npm run dev
 ```
 
-Open the local URL shown in your terminal, usually `http://localhost:5173`.
+Open `http://localhost:5173`.
+
+Do not open `index.html` directly from File Explorer. The portfolio uses root-relative paths such as `/images/...`, so it should be served through the development server or deployed through Vercel.
+
+## Check local assets
+
+```bash
+npm run check
+```
+
+This checks every local image, stylesheet, and script referenced by the portfolio and reports missing files.
 
 ## Build
 
@@ -19,38 +43,167 @@ Open the local URL shown in your terminal, usually `http://localhost:5173`.
 npm run build
 ```
 
-The production build will be generated in the `dist` folder.
+The deployable website is created inside `dist/`. Vercel runs this command automatically when deploying the source project.
 
-## Deploy to Vercel
+## Update portfolio projects
 
-Recommended settings:
+Edit the `projects` array in `script.js`.
 
-```txt
-Framework Preset: Vite
-Build Command: npm run build
-Output Directory: dist
-```
+Each project supports:
 
-## Edit Portfolio Content
+- `discipline`: `video` or `design`
+- `category`: one of the existing filter names
+- `image`: project-cover path
+- `size`: `standard`, `wide`, or `tall`
+- `summary`, `client`, `year`, and `tags`
+- `gallery.images`: an ordered list of images shown while scrolling through the modal
 
-Most content is inside:
-
-```txt
-src/main.jsx
-```
-
-Update these fields when needed:
+Gallery entries may be direct paths:
 
 ```js
-const profile = {
-  email: 'renniel.ramos0701@gmail.com',
-  github: 'https://github.com/RRamos777',
-  linkedin: 'https://www.linkedin.com/in/renniel-ramos-78853123a/',
+gallery: {
+  images: [
+    '/images/project/image-01.webp',
+    '/images/project/image-02.webp',
+  ],
 }
 ```
 
-## Notes
+Or objects with visible captions:
 
-- The phone number from the resume is intentionally hidden for public safety.
-- GitHub is linked, but project cards are written as case studies because the GitHub profile currently has no public repositories.
-- The design avoids heavy gradients, flashy effects, and generic "vibe-coded" visuals.
+```js
+gallery: {
+  layout: 'logo-collection',
+  images: [
+    { src: '/images/project/logo-01.webp', title: 'Brand name' },
+  ],
+}
+```
+
+## Logo Designs collection
+
+The project cover and its nine presentation boards are stored here:
+
+```text
+public/images/graphic_design/logo_design/
+```
+
+The current files are:
+
+```text
+logo_designs_cover.webp
+01_xyz_networks.webp
+02_cafela.webp
+03_aa_architects.webp
+04_pizza_district.webp
+05_rj_travel_tours.webp
+06_bookery.webp
+07_furfam.webp
+08_malan.webp
+09_korus.webp
+```
+
+To add another logo presentation:
+
+1. Export it as WebP and place it in the same folder.
+2. Add another `{ src, title }` entry to the `logo-designs` gallery in `script.js`.
+3. Run `npm run check` and `npm run build`.
+
+## Vanta Motion case study
+
+The Vanta Motion project uses an explicit ordered image list in `script.js`, so the browser only requests files that actually exist.
+
+Its optimized WebP images are stored here:
+
+```text
+public/images/graphic_design/brand_identity/
+```
+
+## Header profile image
+
+The circular header avatar uses:
+
+```text
+public/images/renniel-profile.webp
+```
+
+## Social Media Designs gallery
+
+The graphic-design filter now includes a scrollable Social Media Designs collection with nine campaign case studies, including massage, gym, skincare/face products, restaurant, real estate, cafe, dental, fashion, and healthy food concepts.
+
+
+## Motion Graphics collection
+
+The **Video Editing** filter now includes a **Motion Graphics** category and a scrollable nine-video project.
+
+Place your MP4 exports in this exact folder:
+
+```text
+public/videos/video_editing/motion_graphics/
+```
+
+Use these exact filenames:
+
+```text
+motion_graphics1.mp4
+motion_graphics2.mp4
+motion_graphics3.mp4
+motion_graphics4.mp4
+motion_graphics5.mp4
+motion_graphics6.mp4
+motion_graphics7.mp4
+motion_graphics8.mp4
+motion_graphics9.mp4
+```
+
+The matching website paths are already connected in `script.js`:
+
+```text
+/videos/video_editing/motion_graphics/motion_graphics1.mp4
+...
+/videos/video_editing/motion_graphics/motion_graphics9.mp4
+```
+
+Until a video is added, the project gallery displays a filename placeholder instead of a broken player. Once an MP4 is placed in the folder and the site is refreshed, the video player appears automatically.
+
+Motion Graphics playback behavior:
+
+- The most visible video starts automatically when at least 60% of it is in view.
+- Autoplay begins muted to comply with browser autoplay rules.
+- The video loops while visible and pauses when scrolled away.
+- Only one Motion Graphics video plays at a time.
+- Player controls remain available for seeking, pausing, and unmuting.
+- Autoplay is disabled when the visitor has enabled reduced-motion preferences.
+
+Recommended export settings:
+
+- MP4 container
+- H.264 video codec
+- AAC audio codec
+- Web optimized / fast start enabled
+- 1920 × 1080 for landscape or 1080 × 1920 for vertical work
+
+
+## YouTube Shorts collection
+
+Place your vertical MP4 exports in this folder:
+
+```text
+public/videos/video_editing/youtube_shorts/
+```
+
+Use these exact filenames:
+
+```text
+Shorts1.mp4
+Shorts2.mp4
+Shorts3.mp4
+Shorts4.mp4
+Shorts5.mp4
+Shorts6.mp4
+Shorts7.mp4
+Shorts8.mp4
+Shorts9.mp4
+```
+
+The gallery is optimized for vertical 9:16 videos and automatically changes from three columns on desktop to two columns on tablets and one column on small phones. Missing files display a filename placeholder until the MP4 is added.

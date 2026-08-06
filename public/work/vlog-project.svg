@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250">
+<rect width="1000" height="1250" fill="#e8e6df"/>
+<rect x="70" y="70" width="860" height="1110" rx="30" fill="#121414"/>
+<rect x="130" y="130" width="740" height="570" rx="24" fill="#292c2b"/>
+<circle cx="500" cy="405" r="145" fill="#777b78"/>
+<path d="M365 625 C385 500 440 420 500 420 C560 420 615 500 635 625 Z" fill="#b8b8b1"/>
+<rect x="130" y="785" width="740" height="2" fill="#575a58"/>
+<text x="130" y="885" fill="#f8f7f2" font-family="Arial" font-size="92" font-weight="900" letter-spacing="-4">VLOG</text>
+<text x="130" y="975" fill="#c7ff2e" font-family="Arial" font-size="92" font-weight="900" letter-spacing="-4">PROJECT</text>
+<text x="135" y="1060" fill="#9fa29f" font-family="Arial" font-size="23" font-weight="700" letter-spacing="4">STORY PACING / B-ROLL / COLOR</text>
+</svg>

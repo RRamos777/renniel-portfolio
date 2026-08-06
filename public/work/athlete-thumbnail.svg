@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#111313"/>
+<circle cx="1200" cy="490" r="410" fill="#c7ff2e"/>
+<path d="M1100 170 C1330 260 1390 490 1260 760 C1170 930 900 920 760 720 C620 520 760 250 1100 170 Z" fill="#343735"/>
+<rect x="70" y="70" width="1460" height="860" fill="none" stroke="#656866" stroke-width="2"/>
+<text x="95" y="180" fill="#f7f6f1" font-family="Arial" font-size="38" font-weight="700" letter-spacing="7">PERFORMANCE SERIES</text>
+<text x="95" y="560" fill="#f7f6f1" font-family="Arial" font-size="160" font-weight="900" letter-spacing="-10">TRAIN</text>
+<text x="95" y="710" fill="#c7ff2e" font-family="Arial" font-size="160" font-weight="900" letter-spacing="-10">SMARTER.</text>
+<text x="105" y="850" fill="#9da09e" font-family="Arial" font-size="28" font-weight="700" letter-spacing="4">YOUTUBE THUMBNAIL DIRECTION</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#eceae4"/>
+<rect x="70" y="70" width="1460" height="860" rx="30" fill="#0c0d0e"/>
+<rect x="110" y="115" width="900" height="770" rx="20" fill="#303331"/>
+<circle cx="560" cy="465" r="230" fill="#777b78"/>
+<path d="M440 760 C450 580 500 450 560 450 C620 450 690 580 700 760 Z" fill="#b7b7b1"/>
+<rect x="1050" y="115" width="440" height="235" rx="20" fill="#c7ff2e"/>
+<rect x="1050" y="375" width="440" height="235" rx="20" fill="#f6f5f0"/>
+<rect x="1050" y="635" width="440" height="250" rx="20" fill="#222424" stroke="#555856"/>
+<text x="1090" y="205" fill="#0c0d0e" font-family="Arial" font-size="30" font-weight="700" letter-spacing="4">CHAPTER 01</text>
+<text x="1090" y="485" fill="#0c0d0e" font-family="Arial" font-size="30" font-weight="700" letter-spacing="4">PATTERN CUT</text>
+<text x="1090" y="745" fill="#c7ff2e" font-family="Arial" font-size="30" font-weight="700" letter-spacing="4">STORY PAYOFF</text>
+<text x="120" y="835" fill="#f7f6f1" font-family="Arial" font-size="58" font-weight="900">CREATOR STORY EDIT</text>
+</svg>

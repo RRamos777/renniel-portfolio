@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#d9d7d0"/>
+<g transform="translate(250 220)">
+<path d="M0 0 H260 L480 300 L330 500 Z" fill="#0b0c0d"/>
+<path d="M340 0 H560 L690 180 L540 340 Z" fill="#0b0c0d"/>
+<path d="M760 340 L980 40 H1160 L900 420 Z" fill="#0b0c0d"/>
+</g>
+<text x="90" y="110" fill="#5d605e" font-family="Arial" font-size="28" font-weight="700" letter-spacing="8">LOGO SYSTEM / CONSTRUCTION</text>
+<text x="90" y="900" fill="#0b0c0d" font-family="Arial" font-size="72" font-weight="900" letter-spacing="-3">VANTA MOTION MARK</text>
+</svg>

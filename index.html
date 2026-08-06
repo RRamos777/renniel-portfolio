@@ -5,19 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Renniel Ramos is a Full Stack Developer building web applications, APIs, automation tools, device integrations, database-backed systems, and production-ready .NET solutions."
+      content="Renniel Ramos is a graphic designer and video editor creating brand identities, reels, promotional videos, vlogs, thumbnails, and social media design."
     />
-    <meta property="og:title" content="Renniel Ramos | Full Stack Developer" />
+    <meta property="og:title" content="Renniel Ramos | Graphic Designer & Video Editor" />
     <meta
       property="og:description"
-      content="A polished developer portfolio covering web apps, APIs, automation, SQL Server, integrations, deployment, and production support."
+      content="Selected work across video editing, brand identity, logo design, thumbnails, and social media design."
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0f1115" />
-    <title>Renniel Ramos | Full Stack Developer</title>
+    <meta name="theme-color" content="#0b0c0d" />
+    <title>Renniel Ramos | Graphic Designer & Video Editor</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="Go to top">
+        <span class="brand-mark"><img src="/images/renniel-profile.webp" alt="Renniel Ramos" /></span>
+        <span class="brand-copy">
+          <strong>Renniel Ramos</strong>
+          <small>Design + Motion</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="header-cta" href="mailto:renniel.ramos0701@gmail.com">Start a project</a>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-topline reveal">
+          <span>Graphic Designer &amp; Video Editor</span>
+          <span>Angeles City, Philippines</span>
+          <span class="availability-dot">Available now</span>
+        </div>
+
+        <div class="hero-title-wrap reveal delay-1">
+          <h1>I shape brands <span>and stories that move.</span></h1>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="hero-intro reveal delay-2">
+            <p>I create visual identities and edit story-led videos for brands, creators, and campaigns—clear, intentional, and built to hold attention.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#work">Explore selected work</a>
+              <a class="text-link" href="mailto:renniel.ramos0701@gmail.com">Let’s work together ↗</a>
+            </div>
+          </div>
+
+          <a class="showreel-card reveal delay-3" href="#work" aria-label="Open video editing work">
+            <img src="/work/showreel.svg" alt="Abstract black and lime showreel cover" />
+            <span class="showreel-play" aria-hidden="true">▶</span>
+            <div class="showreel-meta">
+              <span>Selected motion</span>
+              <strong>Showreel / 2026</strong>
+            </div>
+          </a>
+        </div>
+
+        <div class="marquee" aria-label="Creative services">
+          <div class="marquee-track">
+            <span>VIDEO EDITING</span><i>✦</i><span>BRAND IDENTITY</span><i>✦</i><span>REELS</span><i>✦</i>
+            <span>THUMBNAILS</span><i>✦</i><span>VLOGS</span><i>✦</i><span>LOGO DESIGN</span><i>✦</i>
+            <span>VIDEO EDITING</span><i>✦</i><span>BRAND IDENTITY</span><i>✦</i><span>REELS</span><i>✦</i>
+            <span>THUMBNAILS</span><i>✦</i><span>VLOGS</span><i>✦</i><span>LOGO DESIGN</span><i>✦</i>
+          </div>
+        </div>
+      </section>
+
+      <section class="section work-section" id="work">
+        <div class="section-heading">
+          <p class="section-eyebrow">01 / Selected work</p>
+          <h2>A focused mix of motion and visual design.</h2>
+          <p class="section-description">Use the filters to move between disciplines, then narrow the work by format or design category.</p>
+        </div>
+
+        <div class="filter-shell" aria-label="Portfolio filters">
+          <div class="filter-primary">
+            <button type="button" class="is-active" data-discipline="all">All work</button>
+            <button type="button" data-discipline="video">Video editing</button>
+            <button type="button" data-discipline="design">Graphic design</button>
+          </div>
+          <div class="filter-secondary" id="secondary-filters" hidden></div>
+        </div>
+
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-heading">
+          <p class="section-eyebrow">02 / Services</p>
+          <h2>Creative support from first frame to final export.</h2>
+          <p class="section-description">The goal is a cohesive result—not isolated assets that feel unrelated to the brand or story.</p>
+        </div>
+
+        <div class="services-list">
+          <article class="service-row">
+            <span>01</span><h3>Video editing</h3>
+            <p>Reels, YouTube Shorts, talking-head content, vlogs, motion graphics, captions, pacing, sound design, and color cleanup.</p><i aria-hidden="true">↗</i>
+          </article>
+          <article class="service-row">
+            <span>02</span><h3>Brand identity</h3>
+            <p>Visual direction, identity systems, color and type choices, logo applications, social templates, and brand presentation assets.</p><i aria-hidden="true">↗</i>
+          </article>
+          <article class="service-row">
+            <span>03</span><h3>Digital design</h3>
+            <p>Thumbnails, campaign graphics, social media assets, covers, layouts, and adaptable visual systems for recurring content.</p><i aria-hidden="true">↗</i>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="about-image-wrap">
+          <img src="/images/renniel-profile.webp" alt="Renniel Ramos" />
+          <span>Based in Pampanga / Working remotely</span>
+        </div>
+
+        <div class="about-copy">
+          <p class="section-eyebrow">03 / About</p>
+          <h2>I combine a developer’s structure with a designer’s eye for clarity.</h2>
+          <p class="about-lead">My background in software taught me to think in systems. I bring that same approach to creative work—organizing footage, building reusable visual rules, and making every choice serve the message.</p>
+
+          <div class="about-grid">
+            <div><span>Editing</span><p>DaVinci Resolve, pacing, captions, color correction, sound cleanup, narrative structure</p></div>
+            <div><span>Design</span><p>Brand systems, logo applications, typography, thumbnails, campaign and social assets</p></div>
+            <div><span>Tools</span><p>DaVinci Resolve, Canva, Figma, and organized production workflows</p></div>
+            <div><span>Working style</span><p>Clear communication, practical feedback rounds, consistent files, and dependable delivery</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-heading">
+          <p class="section-eyebrow">04 / Process</p>
+          <h2>Simple stages. Intentional decisions. Clean delivery.</h2>
+          <p class="section-description">A straightforward workflow keeps the creative direction clear and reduces unnecessary revisions.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card"><span>01</span><div><h3>Define the direction</h3><p>Clarify the audience, objective, references, required formats, and the feeling the work needs to communicate.</p></div></article>
+          <article class="process-card"><span>02</span><div><h3>Build the visual system</h3><p>Establish pacing, hierarchy, typography, color, framing, and repeatable rules before polishing every detail.</p></div></article>
+          <article class="process-card"><span>03</span><div><h3>Edit and refine</h3><p>Shape the strongest version, review for clarity and consistency, then refine transitions, spacing, sound, and finishing.</p></div></article>
+          <article class="process-card"><span>04</span><div><h3>Deliver for the platform</h3><p>Export organized, platform-ready files and keep the system practical for future edits, versions, and campaign rollouts.</p></div></article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <p class="section-eyebrow">05 / Contact</p>
+        <h2>Have footage, a brand, or an idea that needs a stronger visual direction?</h2>
+        <div class="contact-row">
+          <div><span>Available for freelance, part-time, and remote creative work</span><p>renniel.ramos0701@gmail.com</p></div>
+          <div class="contact-actions">
+            <a class="button light" href="mailto:renniel.ramos0701@gmail.com">Start a conversation</a>
+            <a class="text-link light-link" href="https://www.linkedin.com/in/renniel-ramos-78853123a/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="current-year"></span> Renniel Ramos</span>
+      <span>Graphic Design / Video Editing</span>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="modal-backdrop" id="project-modal" hidden>
+      <article class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <div class="modal-toolbar">
+          <a class="modal-brand" href="#top" aria-label="Renniel Ramos portfolio">RR / Selected work</a>
+          <button class="modal-close" type="button" data-close-modal aria-label="Close project">Close ×</button>
+        </div>
+
+        <div class="modal-image" id="modal-cover-wrap">
+          <img id="modal-image" src="" alt="" />
+        </div>
+
+        <div class="modal-content">
+          <div class="modal-title-row">
+            <div><p id="modal-eyebrow"></p><h2 id="project-modal-title"></h2></div>
+            <span id="modal-client"></span>
+          </div>
+          <p class="modal-summary" id="modal-summary"></p>
+          <div class="modal-tags" id="modal-tags"></div>
+          <div class="modal-scroll-cue" id="modal-scroll-cue" hidden>
+            <span>Scroll to explore the project</span>
+            <span aria-hidden="true">↓</span>
+          </div>
+          <p class="modal-note" id="modal-note">Replace this sample cover and description with your final project media, credits, deliverables, and live video link.</p>
+        </div>
+
+        <div class="project-case-study" id="modal-gallery" hidden aria-label="Project gallery"></div>
+
+        <div class="case-study-end" id="case-study-end" hidden>
+          <span>End of project</span>
+          <button type="button" data-close-modal>Back to selected work ↑</button>
+        </div>
+      </article>
+    </div>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>

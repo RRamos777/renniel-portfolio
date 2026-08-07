@@ -1,4 +1,7 @@
 const projects = [
+  // Grid tip: `size` spans on a 12-column grid — tall=4, standard=6, wide=8.
+  // Keep sizes paired so each row's spans add up to 12 (e.g. tall+wide,
+  // standard+standard) to avoid empty gaps in the desktop layout.
   {
     id: 'vanta-identity',
     title: 'Vanta Motion',
@@ -60,7 +63,7 @@ const projects = [
     discipline: 'video',
     category: 'Reels',
     image: '/images/video_editing/reels/reels1.gif',
-    size: 'wide',
+    size: 'standard',
     summary: 'A curated set of reel preview projects presented as looping GIF showcases, featuring fast-cut social edits, lifestyle footage, beauty moments, tech clips, and cozy daily-content sequences.',
     tags: ['Reel previews', 'Social edits', 'GIF showcase'],
     gallery: {
@@ -86,7 +89,7 @@ const projects = [
     discipline: 'video',
     category: 'Motion Graphics',
     image: '/work/motion-graphics.svg',
-    size: 'wide',
+    size: 'standard',
     summary: 'A collection prepared for kinetic typography, animated brand systems, title sequences, explainer graphics, logo animation, and promotional motion work.',
     tags: ['Kinetic type', 'Logo animation', 'Motion systems'],
     gallery: {
@@ -137,7 +140,7 @@ const projects = [
     discipline: 'design',
     category: 'Thumbnail Design',
     image: '/images/graphic_design/thumbnail_design/thumbnail_designs_cover.webp',
-    size: 'wide',
+    size: 'standard',
     summary: 'A curated thumbnail collection built for YouTube and social media, mixing realistic creator-led compositions, travel, gaming, lifestyle, education, and Pinoy concept thumbnails designed for stronger click-through.',
     tags: ['YouTube thumbnails', 'Case studies', 'Click-through design'],
     gallery: {
@@ -163,7 +166,7 @@ const projects = [
     discipline: 'design',
     category: 'Social Media Design',
     image: '/images/graphic_design/social_media_design/social_media_designs_cover.webp',
-    size: 'wide',
+    size: 'standard',
     summary: 'A selected collection of social media campaigns created for wellness, fitness, skincare, food, real estate, hospitality, healthcare, fashion, and healthy-lifestyle brands.',
     tags: ['Social campaigns', 'Promotional posts', 'Content systems'],
     gallery: {
@@ -189,7 +192,7 @@ const projects = [
     discipline: 'video',
     category: 'YouTube Shorts',
     image: '/images/video_editing/covers/youtube_shorts_cover.png',
-    size: 'wide',
+    size: 'standard',
     summary: 'A single landscape showcase combining four YouTube Shorts in one video, presented as a clean side-by-side montage for quick portfolio viewing on desktop, tablet, and phone.',
     tags: ['Four-up montage', 'Short-form editing', 'Landscape showcase'],
     gallery: {
@@ -288,6 +291,15 @@ function renderProjects() {
       }
     });
   });
+
+  grid.querySelectorAll('.project-visual').forEach((visual) => {
+    const image = visual.querySelector('img');
+    if (!image) return;
+    const markLoaded = () => visual.classList.add('is-loaded');
+    image.addEventListener('load', markLoaded, { once: true });
+    image.addEventListener('error', markLoaded, { once: true });
+    if (image.complete) markLoaded();
+  });
 }
 
 function renderSecondaryFilters() {
@@ -299,11 +311,14 @@ function renderSecondaryFilters() {
 
   secondaryFilters.hidden = false;
   secondaryFilters.innerHTML = categories[activeDiscipline]
-    .map((category, index) => `
-      <button type="button" class="${index === 0 && !activeCategory ? 'is-active' : activeCategory === category ? 'is-active' : ''}" data-category="${escapeHtml(category)}">
+    .map((category, index) => {
+      const isActive = index === 0 && !activeCategory ? true : activeCategory === category;
+      return `
+      <button type="button" class="${isActive ? 'is-active' : ''}" aria-pressed="${isActive}" data-category="${escapeHtml(category)}">
         ${escapeHtml(category)}
       </button>
-    `)
+    `;
+    })
     .join('');
 
   secondaryFilters.querySelectorAll('[data-category]').forEach((button) => {
@@ -584,6 +599,30 @@ function checkGalleryEmpty() {
   }
 }
 
+const inertTargets = ['.site-header', '#page-content', '.site-footer', '.mobile-nav']
+  .map((selector) => document.querySelector(selector))
+  .filter(Boolean);
+
+function trapModalFocus(event) {
+  if (event.key !== 'Tab' || modal.hidden) return;
+
+  const focusable = [...modalArticle.querySelectorAll('a[href], button:not([disabled]), video[controls], [tabindex]:not([tabindex="-1"])')]
+    .filter((el) => el.offsetParent !== null || el === document.activeElement);
+
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
 function openProject(project) {
   modal.scrollTop = 0;
   modalImage.src = project.image;
@@ -597,6 +636,7 @@ function openProject(project) {
 
   modal.hidden = false;
   document.body.classList.add('modal-open');
+  inertTargets.forEach((el) => el.setAttribute('inert', ''));
   initializeVideoAutoplay();
   modal.querySelector('[data-close-modal]').focus();
 }
@@ -605,6 +645,7 @@ function closeProject() {
   destroyVideoAutoplay();
   modal.hidden = true;
   document.body.classList.remove('modal-open');
+  inertTargets.forEach((el) => el.removeAttribute('inert'));
   modalGallery.replaceChildren();
   modalArticle.classList.remove('has-case-study');
   if (lastFocusedProject) lastFocusedProject.focus();
@@ -614,7 +655,11 @@ disciplineButtons.forEach((button) => {
   button.addEventListener('click', () => {
     activeDiscipline = button.dataset.discipline;
     activeCategory = '';
-    disciplineButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+    disciplineButtons.forEach((item) => {
+      const isActive = item === button;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-pressed', String(isActive));
+    });
     renderSecondaryFilters();
     renderProjects();
   });
@@ -628,6 +673,7 @@ modal.querySelectorAll('[data-close-modal]').forEach((button) => {
 });
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !modal.hidden) closeProject();
+  else trapModalFocus(event);
 });
 
 document.addEventListener('visibilitychange', () => {
@@ -658,3 +704,69 @@ sections.forEach((section) => observer.observe(section));
 document.getElementById('current-year').textContent = new Date().getFullYear();
 renderProjects();
 renderSecondaryFilters();
+
+// Theme toggle (dark mode). The initial theme is already applied by the
+// blocking inline script in <head> to avoid a flash of the wrong theme —
+// this just wires up the button and keeps the preference in sync.
+(function initThemeToggle() {
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const lightMeta = document.querySelector('meta[name="theme-color"][data-theme-meta="light"]');
+  const darkMeta = document.querySelector('meta[name="theme-color"][data-theme-meta="dark"]');
+
+  function isDark() {
+    return root.getAttribute('data-theme') === 'dark';
+  }
+
+  function syncToggleState() {
+    const dark = isDark();
+    toggle.setAttribute('aria-pressed', String(dark));
+    toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  function applyTheme(theme, persist) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    if (persist) {
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {
+        /* ignore storage errors (private browsing, etc.) */
+      }
+    }
+    // Force both theme-color meta tags to reflect the active theme rather
+    // than relying on the OS-level media query, since the user can now
+    // override the system preference manually.
+    if (lightMeta) lightMeta.setAttribute('media', theme === 'light' ? 'all' : 'not all');
+    if (darkMeta) darkMeta.setAttribute('media', theme === 'dark' ? 'all' : 'not all');
+    syncToggleState();
+  }
+
+  // Reflect whatever the head script already applied, then wire the click.
+  applyTheme(isDark() ? 'dark' : 'light', false);
+
+  toggle.addEventListener('click', () => {
+    applyTheme(isDark() ? 'light' : 'dark', true);
+  });
+})();
+
+document.body.classList.add('js-ready');
+if ('IntersectionObserver' in window) {
+  const revealTargets = [...document.querySelectorAll('.reveal-on-scroll')];
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+  );
+  revealTargets.forEach((target) => revealObserver.observe(target));
+}

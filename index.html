@@ -13,11 +13,29 @@
       content="Selected work across video editing, brand identity, logo design, thumbnails, and social media design."
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0b0c0d" />
+    <meta property="og:image" content="/work/vanta_motion_project_cover.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Renniel Ramos | Graphic Designer & Video Editor" />
+    <meta name="twitter:description" content="Selected work across video editing, brand identity, logo design, thumbnails, and social media design." />
+    <meta name="twitter:image" content="/work/vanta_motion_project_cover.webp" />
+    <meta name="theme-color" content="#f1f0eb" media="all" data-theme-meta="light" />
+    <meta name="theme-color" content="#111213" media="not all" data-theme-meta="dark" />
+    <link rel="icon" type="image/webp" href="/images/renniel-profile.webp" />
     <title>Renniel Ramos | Graphic Designer & Video Editor</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preload" href="/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/styles.css?v=13" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#work">Skip to content</a>
     <header class="site-header">
       <a href="#top" class="brand" aria-label="Go to top">
         <span class="brand-mark"><img src="/images/renniel-profile.webp" alt="Renniel Ramos" /></span>
@@ -35,10 +53,16 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <a class="header-cta" href="mailto:renniel.ramos0701@gmail.com">Start a project</a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M21.5 12h-2.4M4.9 12H2.5M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.7A8.6 8.6 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="header-cta" href="mailto:renniel.ramos0701@gmail.com">Start a project</a>
+      </div>
     </header>
 
-    <main>
+    <main id="page-content">
       <section class="hero" id="top">
         <div class="hero-topline reveal">
           <span>Graphic Designer &amp; Video Editor</span>
@@ -69,8 +93,8 @@
           </a>
         </div>
 
-        <div class="marquee" aria-label="Creative services">
-          <div class="marquee-track">
+        <div class="marquee" role="img" aria-label="Services: video editing, brand identity, reels, thumbnails, vlogs, logo design">
+          <div class="marquee-track" aria-hidden="true">
             <span>VIDEO EDITING</span><i>✦</i><span>BRAND IDENTITY</span><i>✦</i><span>REELS</span><i>✦</i>
             <span>THUMBNAILS</span><i>✦</i><span>VLOGS</span><i>✦</i><span>LOGO DESIGN</span><i>✦</i>
             <span>VIDEO EDITING</span><i>✦</i><span>BRAND IDENTITY</span><i>✦</i><span>REELS</span><i>✦</i>
@@ -80,7 +104,7 @@
       </section>
 
       <section class="section work-section" id="work">
-        <div class="section-heading">
+        <div class="section-heading reveal-on-scroll">
           <p class="section-eyebrow">01 / Selected work</p>
           <h2>A focused mix of motion and visual design.</h2>
           <p class="section-description">Use the filters to move between disciplines, then narrow the work by format or design category.</p>
@@ -88,9 +112,9 @@
 
         <div class="filter-shell" aria-label="Portfolio filters">
           <div class="filter-primary">
-            <button type="button" class="is-active" data-discipline="all">All work</button>
-            <button type="button" data-discipline="video">Video editing</button>
-            <button type="button" data-discipline="design">Graphic design</button>
+            <button type="button" class="is-active" aria-pressed="true" data-discipline="all">All work</button>
+            <button type="button" aria-pressed="false" data-discipline="video">Video editing</button>
+            <button type="button" aria-pressed="false" data-discipline="design">Graphic design</button>
           </div>
           <div class="filter-secondary" id="secondary-filters" hidden></div>
         </div>
@@ -99,13 +123,13 @@
       </section>
 
       <section class="section" id="services">
-        <div class="section-heading">
+        <div class="section-heading reveal-on-scroll">
           <p class="section-eyebrow">02 / Services</p>
           <h2>Creative support from first frame to final export.</h2>
           <p class="section-description">The goal is a cohesive result—not isolated assets that feel unrelated to the brand or story.</p>
         </div>
 
-        <div class="services-list">
+        <div class="services-list reveal-on-scroll">
           <article class="service-row">
             <span>01</span><h3>Video editing</h3>
             <p>Reels, YouTube Shorts, talking-head content, vlogs, motion graphics, captions, pacing, sound design, and color cleanup.</p><i aria-hidden="true">↗</i>
@@ -122,12 +146,12 @@
       </section>
 
       <section class="section about-section" id="about">
-        <div class="about-image-wrap">
+        <div class="about-image-wrap reveal-on-scroll">
           <img src="/images/renniel-profile.webp" alt="Renniel Ramos" />
           <span>Based in Pampanga / Working remotely</span>
         </div>
 
-        <div class="about-copy">
+        <div class="about-copy reveal-on-scroll">
           <p class="section-eyebrow">03 / About</p>
           <h2>I combine a developer’s structure with a designer’s eye for clarity.</h2>
           <p class="about-lead">My background in software taught me to think in systems. I bring that same approach to creative work—organizing footage, building reusable visual rules, and making every choice serve the message.</p>
@@ -142,13 +166,13 @@
       </section>
 
       <section class="section" id="process">
-        <div class="section-heading">
+        <div class="section-heading reveal-on-scroll">
           <p class="section-eyebrow">04 / Process</p>
           <h2>Simple stages. Intentional decisions. Clean delivery.</h2>
           <p class="section-description">A straightforward workflow keeps the creative direction clear and reduces unnecessary revisions.</p>
         </div>
 
-        <div class="process-grid">
+        <div class="process-grid reveal-on-scroll">
           <article class="process-card"><span>01</span><div><h3>Define the direction</h3><p>Clarify the audience, objective, references, required formats, and the feeling the work needs to communicate.</p></div></article>
           <article class="process-card"><span>02</span><div><h3>Build the visual system</h3><p>Establish pacing, hierarchy, typography, color, framing, and repeatable rules before polishing every detail.</p></div></article>
           <article class="process-card"><span>03</span><div><h3>Edit and refine</h3><p>Shape the strongest version, review for clarity and consistency, then refine transitions, spacing, sound, and finishing.</p></div></article>
@@ -156,7 +180,7 @@
         </div>
       </section>
 
-      <section class="contact-section" id="contact">
+      <section class="contact-section reveal-on-scroll" id="contact">
         <p class="section-eyebrow">05 / Contact</p>
         <h2>Have footage, a brand, or an idea that needs a stronger visual direction?</h2>
         <div class="contact-row">
